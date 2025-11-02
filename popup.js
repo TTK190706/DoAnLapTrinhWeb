@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const popupPrice = document.getElementById("popup-price");
     const popupDesc = document.getElementById("popup-desc");
 
-    // Gắn sự kiện click cho từng sản phẩm
     document.querySelectorAll(".product-card").forEach(card => {
         card.addEventListener("click", () => {
             const img = card.querySelector("img").src;
@@ -18,25 +17,32 @@ document.addEventListener("DOMContentLoaded", () => {
             popupTitle.textContent = title;
             popupPrice.textContent = price;
 
-            // Lấy thông tin chi tiết từ file khác (ví dụ info.json)
             fetch("SanPham.json")
                 .then(res => res.json())
                 .then(data => {
-                    const item = data.find(p => p.name.trim().toLowerCase() === title.trim().toLowerCase());
+    const item = data.find(p => p.name.trim().toLowerCase() === title.trim().toLowerCase());
+    if (item) {
+        popupDesc.innerHTML = `
+            <b>Tác giả:</b> ${item.author}<br>
+            <b>Thể loại:</b> ${item.category}<br>
+            <b>Nhà xuất bản:</b> ${item.publisher}<br>
+            <b>Năm XB:</b> ${item.publicYear}<br>
+            <b>Mô tả:</b> ${item.description}
+        `;
+    } else {
+        popupDesc.textContent = "Không có thông tin chi tiết.";
+    }
+})
 
-                    popupDesc.textContent = item ? item.description : "Không có thông tin chi tiết.";
-                })
                 .catch(() => {
                     popupDesc.textContent = "Không tải được thông tin sản phẩm.";
                 });
 
-            // Hiện popup
             overlay.classList.remove("hidden");
             popup.classList.remove("hidden");
         });
     });
 
-    // Đóng popup
     [overlay, closeBtn].forEach(el => {
         el.addEventListener("click", () => {
             overlay.classList.add("hidden");
