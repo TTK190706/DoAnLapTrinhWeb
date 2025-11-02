@@ -312,6 +312,7 @@ input[type="radio"] {
     content: "Trang 2 / 2";
 }
 
+/* ===== Overlay & Popup ===== */
 .hidden {
     display: none;
 }
@@ -385,20 +386,4 @@ input[type="radio"] {
 #buy-now {
     background-color: #e60000;
     color: #fff;
-}
-
-.orderBtn {
-    margin-top: 10px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    background-color: #e60000;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-}
-.orderBtn:hover {
-    background-color: #c00000;
-    transform: scale(1.05);
 }
