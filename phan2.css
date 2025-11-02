@@ -311,3 +311,94 @@ input[type="radio"] {
 #page-10-kt:checked ~ #pagination-controls-kt #page-info-kt::after {
     content: "Trang 2 / 2";
 }
+
+.hidden {
+    display: none;
+}
+
+#overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 800px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.4);
+    z-index: 11;
+    padding: 20px;
+}
+
+.popup-content {
+    display: flex;
+    gap: 20px;
+}
+
+.popup-left img {
+    width: 250px;
+    border-radius: 8px;
+}
+
+.popup-right {
+    flex: 1;
+}
+
+#close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.popup-buttons button {
+    flex: 1;
+    margin: 0 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#add-cart {
+    background-color: #f1f1f1;
+}
+
+#buy-now {
+    background-color: #e60000;
+    color: #fff;
+}
+
+.orderBtn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #e60000;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.orderBtn:hover {
+    background-color: #c00000;
+    transform: scale(1.05);
+}
